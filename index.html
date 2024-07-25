@@ -172,7 +172,12 @@
 
         <!-- End page content -->
     </div>
-
+    <div>
+        <h1>IA qui lit vos phrases</h1>
+        <p>Entrz du texte ci-dessus</p>
+        <textarea name="text" id="text" cols="30" rows="10"></textarea>
+        <button onclick="lire()" id="button">Lire</button>
+    </div>
 
     <!-- Footer -->
     <footer class="w3-center w3-black w3-padding-16">
@@ -183,7 +188,16 @@
         <p>Powered by <a href="https://www.linkedin.com/in/gloire-fiyss-baz-s-4022ba271/"
                 class="w3-hover-text-green">Gloire Dev Web</a></p>
     </footer>
-
+    <script>
+    function lire () {
+        let text = document.getElementById("text").value;
+        let syntheseVocale = window.speechSynthesis;
+        let speech = new SpeechSynthesisUtterance(text);
+        speech.voiceURI = 'native';
+        speech.lang = 'fr-FR';
+        syntheseVocale.speak(speech);
+    }
+    </script>
 </body>
 
 </html>
